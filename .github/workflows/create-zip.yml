@@ -2,6 +2,9 @@ name: Create zip
 
 on: workflow_dispatch
 
+env:
+  NODE_OPTIONS: --max_old_space_size=8192
+
 jobs:
   build:
     name: Build Packages
@@ -32,10 +35,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: directus
-          path: ./dist
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: directus-2
           path: dist
