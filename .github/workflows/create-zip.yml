@@ -24,7 +24,7 @@ jobs:
 
       - name: Build
         run: |
-          node --max-old-space-size=4096 
+          export NODE_OPTIONS=--max_old_space_size=4096
           npm run build
           node docker/pack
 
